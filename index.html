@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Детская музыкальная школа имени А. П. Тертычного. Музыка, которая становится частью жизни.">
+  <title>Музыкальная школа имени А. П. Тертычного</title>
+  <style>
+    :root { --navy:#17244f; --blue:#00a9c7; --sky:#7ff4e4; --cream:#fff2c9; --coral:#ff4268; --yellow:#ffe23f; --purple:#874cff; --text:#17244f; --muted:#536d85; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--text); background:#fff2c9; font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    body:before { content:""; position:fixed; z-index:-1; inset:0; opacity:.5; pointer-events:none; background-image:radial-gradient(#f3b3a5 .8px,transparent .8px),radial-gradient(#9edfd6 .7px,transparent .7px); background-position:0 0,7px 8px; background-size:18px 18px; }
+    .container { width:min(1180px,calc(100% - 40px)); margin:auto; }
+    .topbar { padding:22px 0; background:#fffdf4; border-bottom:3px solid var(--navy); }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:flex; align-items:center; gap:12px; color:var(--navy); text-decoration:none; font-weight:850; line-height:1.05; }
+    .brand-mark { display:grid; place-items:center; width:46px; height:46px; border:2px solid var(--navy); border-radius:50% 50% 44% 44%; color:var(--cream); background:var(--coral); font-family:Georgia,serif; font-size:25px; transform:rotate(-7deg); }
+    .brand small { display:block; margin-top:5px; color:var(--muted); font-size:9px; font-weight:750; letter-spacing:.13em; text-transform:uppercase; }
+    nav { display:flex; align-items:center; gap:27px; }
+    nav a { color:var(--text); font-size:13px; font-weight:750; text-decoration:none; }
+    nav a:hover { color:var(--coral); }
+    .nav-cta, .button { display:inline-flex; align-items:center; justify-content:center; border:2px solid var(--navy); border-radius:999px; padding:12px 19px; color:white; background:var(--coral); box-shadow:3px 3px 0 var(--navy); font-size:12px; font-weight:850; text-decoration:none; transition:.15s; }
+    .nav-cta:hover, .button:hover { color:white; transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--navy); }
+    .hero { position:relative; min-height:600px; display:grid; align-items:center; overflow:hidden; padding:74px 0 94px; background:linear-gradient(120deg,#fff2c9 0%,#fff2c9 40%,#61e7d7 40%,#61e7d7 75%,#ff8a79 75%); }
+    .hero:after { content:"♪"; position:absolute; right:8%; top:15%; color:rgba(255,255,255,.46); font:180px Georgia,serif; transform:rotate(12deg); }
+    .hero-grid { display:grid; grid-template-columns:1.05fr .95fr; align-items:center; gap:48px; }
+    .eyebrow { color:var(--coral); font-size:11px; font-weight:900; letter-spacing:.17em; text-transform:uppercase; }
+    h1,h2 { margin:0; color:var(--navy); font-family:Georgia,serif; font-weight:700; letter-spacing:-.055em; }
+    h1 { max-width:660px; margin:12px 0 22px; font-size:clamp(44px,6.8vw,82px); line-height:.92; }
+    h1 em { color:var(--coral); font-style:normal; }
+    .hero-copy { max-width:485px; color:var(--muted); font-size:17px; line-height:1.6; }
+    .actions { display:flex; flex-wrap:wrap; align-items:center; gap:22px; margin-top:30px; }
+    .text-link { color:var(--navy); font-size:13px; font-weight:850; text-decoration:none; border-bottom:2px solid var(--yellow); }
+    .art { position:relative; min-height:380px; }
+    .sun { position:absolute; top:18px; right:10%; width:230px; height:230px; border-radius:50%; background:#ffe23f; box-shadow:0 0 0 18px rgba(255,226,63,.28),0 0 0 34px rgba(255,226,63,.14); }
+    .portrait { position:absolute; z-index:1; right:7%; bottom:18px; width:min(330px,75%); height:330px; border:3px solid var(--navy); border-radius:48% 48% 12% 12%; background:linear-gradient(145deg,#ff796b,#e54475); box-shadow:9px 10px 0 var(--navy); }
+    .portrait:before { content:"♫"; position:absolute; left:50%; top:12%; color:#fff1d6; font:210px Georgia,serif; transform:translateX(-50%) rotate(-10deg); }
+    .portrait:after { content:"А. П. Тертычный"; position:absolute; left:20px; bottom:15px; color:#fff1d6; font-size:11px; font-weight:850; letter-spacing:.12em; text-transform:uppercase; }
+    .note { position:absolute; z-index:2; display:grid; place-items:center; width:59px; height:59px; border:2px solid var(--navy); border-radius:50%; color:var(--navy); background:var(--cream); font:32px Georgia,serif; }
+    .note.one { left:4%; top:35%; transform:rotate(-13deg); } .note.two { right:0; bottom:8%; background:var(--yellow); transform:rotate(12deg); }
+    .ribbon { position:absolute; bottom:0; left:0; width:100%; padding:15px 0; color:#fff5e3; background:var(--navy); font-size:11px; font-weight:800; letter-spacing:.12em; text-align:center; text-transform:uppercase; }
+    .section { padding:105px 0; }
+    .section-heading { display:flex; justify-content:space-between; align-items:end; gap:30px; margin-bottom:38px; }
+    h2 { font-size:clamp(37px,5vw,60px); line-height:.96; }
+    .section-intro { max-width:340px; margin:0; color:var(--muted); font-size:14px; line-height:1.6; }
+    .features { display:grid; grid-template-columns:repeat(3,1fr); gap:15px; }
+    .feature { min-height:220px; padding:25px; border:2px solid var(--navy); background:#ff8290; box-shadow:5px 6px 0 var(--navy); }
+    .feature:nth-child(2) { margin-top:27px; background:#57e3d3; } .feature:nth-child(3) { background:#ffd83d; }
+    .feature-number { color:var(--coral); font-family:Georgia,serif; font-size:29px; } .feature h3 { margin:37px 0 8px; color:var(--navy); font:700 22px Georgia,serif; } .feature p { margin:0; color:var(--muted); font-size:13px; line-height:1.5; }
+    .programs { background:linear-gradient(135deg,#4723a8,#096d9d 55%,#00a9c7); color:#fff8e5; } .programs h2 { color:#fff8e5; } .programs .section-intro { color:#d6ffff; }
+    .program-list { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid #486174; }
+    .program { min-height:225px; padding:25px 17px 20px; border-right:1px solid #557696; } .program:first-child { border-left:1px solid #557696; } .program:nth-child(2) .program-icon { color:#ff7b75; } .program:nth-child(3) .program-icon { color:#88e5da; } .program:nth-child(4) .program-icon { color:#c3a8ff; }
+    .program-icon { color:var(--yellow); font:40px Georgia,serif; } .program h3 { margin:34px 0 8px; font:700 20px Georgia,serif; } .program p { margin:0; color:#c3dadd; font-size:12px; line-height:1.5; }
+    .about-grid { display:grid; grid-template-columns:.8fr 1.2fr; gap:80px; align-items:center; }
+    .quote { padding:30px; border-left:4px solid var(--coral); background:#fffaf0; } .quote p { margin:0; color:var(--navy); font:26px/1.25 Georgia,serif; } .quote cite { display:block; margin-top:22px; color:var(--coral); font-size:11px; font-style:normal; font-weight:850; letter-spacing:.1em; text-transform:uppercase; }
+    .about-copy { color:var(--muted); font-size:15px; line-height:1.7; } .about-copy strong { color:var(--navy); }
+    .contact { padding:70px 0; background:linear-gradient(100deg,#ffe23f,#ff755f,#ff4268); } .contact-box { display:flex; align-items:center; justify-content:space-between; gap:30px; } .contact h2 { max-width:600px; } .contact .button { background:var(--purple); color:#fff; }
+    footer { padding:25px 0; color:#c2d0d0; background:var(--navy); font-size:11px; } .footer-inner { display:flex; justify-content:space-between; gap:18px; } footer a { color:var(--yellow); font-weight:800; text-decoration:none; }
+    @media(max-width:760px) { .container { width:min(100% - 28px,1180px); } nav a:not(.nav-cta) { display:none; } .hero { min-height:auto; padding:70px 0 100px; background:linear-gradient(150deg,#f8f4eb 59%,#c8e7df 59%); } .hero-grid,.about-grid { grid-template-columns:1fr; gap:20px; } .art { min-height:330px; } .portrait { right:12%; width:260px; height:275px; } .sun { right:8%; width:180px; height:180px; } .section { padding:75px 0; } .section-heading { display:block; } .section-intro { margin-top:18px; } .features { grid-template-columns:1fr; } .feature:nth-child(2) { margin-top:0; } .program-list { grid-template-columns:1fr 1fr; } .program:nth-child(3) { border-left:1px solid #486174; } .program:nth-child(n+3) { border-top:1px solid #486174; } .contact-box,.footer-inner { display:block; } .contact .button { margin-top:25px; } footer p { margin:8px 0; } }
+    @media(max-width:420px) { .brand { font-size:12px; } .brand-mark { width:38px; height:38px; font-size:21px; } .nav-cta { padding:10px 12px; font-size:10px; } h1 { font-size:47px; } .program-list { grid-template-columns:1fr; } .program { border-left:1px solid #486174; border-top:1px solid #486174; } }
+  </style>
+</head>
+<body>
+  <header class="topbar"><div class="container nav">
+    <a class="brand" href="#top"><span class="brand-mark">♪</span><span>Музыкальная школа<br><small>имени А. П. Тертычного</small></span></a>
+    <nav><a href="#school">О школе</a><a href="#programs">Направления</a><a href="#contact">Контакты</a><a class="nav-cta" href="https://vk.ru/lutmuzshkol" target="_blank" rel="noopener">Мы во ВКонтакте ↗</a></nav>
+  </div></header>
+  <main id="top">
+    <section class="hero"><div class="container hero-grid"><div>
+      <div class="eyebrow">Музыка · образование · вдохновение</div><h1>Слушать. Учиться. <em>Звучать.</em></h1>
+      <p class="hero-copy">Детская музыкальная школа имени А. П. Тертычного — место, где первые ноты превращаются в уверенность, друзей и любовь к музыке.</p>
+      <div class="actions"><a class="button" href="https://vk.ru/lutmuzshkol" target="_blank" rel="noopener">Задать вопрос школе ↗</a><a class="text-link" href="#programs">Выбрать направление ↓</a></div>
+    </div><div class="art" aria-hidden="true"><div class="sun"></div><div class="portrait"></div><div class="note one">♪</div><div class="note two">♫</div></div></div><div class="ribbon">Здесь начинается ваша музыкальная история</div></section>
+    <section class="section" id="school"><div class="container"><div class="section-heading"><h2>Больше, чем<br>занятия</h2><p class="section-intro">Мы помогаем детям раскрыть слух, характер и собственный голос — в бережной атмосфере школы.</p></div><div class="features">
+      <article class="feature"><span class="feature-number">01</span><h3>Основа</h3><p>Развиваем музыкальный слух, ритм и артистичность с первых шагов.</p></article>
+      <article class="feature"><span class="feature-number">02</span><h3>Наставники</h3><p>Педагог рядом, чтобы поддержать, объяснить сложное и заметить успех.</p></article>
+      <article class="feature"><span class="feature-number">03</span><h3>Сцена</h3><p>Концерты и выступления помогают перестать бояться и начать звучать.</p></article>
+    </div></div></section>
+    <section class="section programs" id="programs"><div class="container"><div class="section-heading"><h2>Найди свой<br>инструмент</h2><p class="section-intro">Выберите направление, которое откликается. А если сомневаетесь — напишите нам, мы подскажем.</p></div><div class="program-list">
+      <article class="program"><div class="program-icon">♬</div><h3>Фортепиано</h3><p>Путь от первых клавиш до собственного исполнения.</p></article>
+      <article class="program"><div class="program-icon">♩</div><h3>Народные инструменты</h3><p>Живое звучание и традиции, которые хочется продолжать.</p></article>
+      <article class="program"><div class="program-icon">♫</div><h3>Вокал</h3><p>Дыхание, голос, эмоция и свобода быть услышанным.</p></article>
+      <article class="program"><div class="program-icon">𝄞</div><h3>Теория музыки</h3><p>Учимся видеть музыку, слышать её и понимать глубже.</p></article>
+    </div></div></section>
+    <section class="section" id="about"><div class="container about-grid"><div class="quote"><p>«У каждого ребёнка есть своя мелодия. Наша задача — помочь ей прозвучать».</p><cite>Музыкальная школа имени А. П. Тертычного</cite></div><div class="about-copy"><div class="eyebrow">О школе</div><h2>Растём вместе<br>с музыкой</h2><p>Музыкальная школа — это не только ноты и упражнения. Это первое самостоятельное выступление, новый друг в классе, радость от сложившейся мелодии и опыт, который остаётся на всю жизнь.</p><p><strong>Следите за новостями, объявлениями и событиями школы</strong> в официальном сообществе ВКонтакте.</p></div></div></section>
+    <section class="contact" id="contact"><div class="container contact-box"><h2>Пора познакомиться<br>с вашей музыкой?</h2><a class="button" href="https://vk.ru/lutmuzshkol" target="_blank" rel="noopener">Перейти в сообщество ↗</a></div></section>
+  </main>
+  <footer><div class="container footer-inner"><p>© Музыкальная школа имени А. П. Тертычного</p><p><a href="https://vk.ru/lutmuzshkol" target="_blank" rel="noopener">Официальное сообщество ВКонтакте ↗</a></p></div></footer>
+</body>
+</html>
